@@ -1,2 +1,2 @@
 # talks
-[WIP] https://talks.ojiry.com
+https://talks.ojiry.com
