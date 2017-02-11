@@ -13,7 +13,7 @@ by Ryoji Yoshioka / @ojiry
 * My editor is Neovim
 ---
 ## A little Rails Contributors
-![rails-contributors](/images/rails-contributors.png)
+![rails-contributors](images/rails-contributors.png)
 
 ---
 ## Noevim is awesome editor :laughing:
