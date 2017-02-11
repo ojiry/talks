@@ -20,9 +20,15 @@ by Ryoji Yoshioka / @ojiry
 ***
 ## What's Akiba.rb? :thinking:
 ---
-### 1
+## Moku Moku Workshop
+* <p class="fragment">Write code using Ruby</p>
+* <p class="fragment">Write code using Ruby</p>
+* <p class="fragment">Write code using Ruby</p>
 ---
-### 2
+## Akiba.rb Policy
+* Programmer should write code
+* Present the results
+* Let's enjoy them
 ***
 ## Schedules
 * 19:00 - Introduce Akiba.rb
@@ -32,6 +38,6 @@ by Ryoji Yoshioka / @ojiry
 ---
 ## Any Questions? :hand:
 ---
-## Let's enjoy Moku Moku! :wink:
+## Let's have fun! :wink:
 ---
 ## Thanks :clap:
