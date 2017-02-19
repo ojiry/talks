@@ -12,11 +12,11 @@ by Ryoji Yoshioka / @ojiry
 * Rails Programer
 * My editor is Neovim
 ---
-## A little Rails Contributors
+## I can develop Rails a little
 ![rails-contributors](images/rails-contributors.png)
-
 ---
 ## Noevim is awesome editor :laughing:
+![neovim](images/neovim.png)
 ***
 ## What's Akiba.rb? :thinking:
 ---
