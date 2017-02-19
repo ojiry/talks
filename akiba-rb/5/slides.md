@@ -29,6 +29,9 @@ by Ryoji Yoshioka / @ojiry
 * Programmer should write code
 * Present the results
 * Let's enjoy them
+---
+## Please join Slack
+https://akihabararb-slackin.herokuapp.com/
 ***
 ## Schedules
 * 19:00 - Introduce Akiba.rb
