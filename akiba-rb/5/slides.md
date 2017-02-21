@@ -32,6 +32,10 @@ by Ryoji Yoshioka / @ojiry
 ---
 ## Please join Slack
 https://akihabararb-slackin.herokuapp.com/
+---
+## Example my work
+### [ojiry/bourbon_house](https://github.com/ojiry/bourbon_house)
+### [otaku-dev/otacop](https://github.com/otaku-dev/otacop)
 ***
 ## Schedules
 * 19:00 - Introduce Akiba.rb
