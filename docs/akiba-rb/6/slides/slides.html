@@ -1,0 +1,142 @@
+<section>
+
+<h1>Akiba.rb #6</h1>
+
+<h2>in Akiba code</h2>
+<p>by Ryoji Yoshioka / <a href="https://github.com/ojiry" class="user-mention">@ojiry</a></p>
+
+</section>
+<section>
+
+<h2>Thanks Akiba code <img class="emoji" alt=":pray:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f64f.png">
+</h2>
+<p><a href="https://akibacode.blogspot.jp/">Akiba code</a> is the good place <img class="emoji" alt=":+1:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png"></p>
+
+</section>
+<section>
+
+<h2>About me</h2>
+<ul>
+  <li>Ryoji Yoshioka (<a href="https://github.com/ojiry" class="user-mention">@ojiry</a>)</li>
+  <li>Akiba.rb Organizer</li>
+  <li>Rails Programer</li>
+  <li>My editor is Neovim</li>
+</ul>
+
+</section>
+<section>
+
+<h3>Ran Itabashi City Marathon on Sunday</h3>
+<p><img src="images/itabashi-city-marathon.png" alt="itabashi-city-marathon"></p>
+
+</section>
+<section>
+
+<h2>今日やったこと</h2>
+<ul>
+  <li>勉強会で使う Slack Team の統合</li>
+  <li>発表資料（これ）の作成</li>
+  <li>ユーザ登録 API の実装</li>
+</ul>
+
+</section>
+<section>
+<section>
+
+<h2>ユーザ登録 API の実装</h2>
+
+</section>
+<section>
+
+<h2>リソースは？</h2>
+<ul>
+  <li>/users</li>
+  <li>/registrations</li>
+  <li>/accounts</li>
+</ul>
+
+</section>
+<section>
+
+<h2>こんな感じにした</h2>
+<pre><code class="language-sh">$ curl -i -X POST http://localhost:3000/users
+</code></pre>
+
+</section>
+<section>
+
+<h2>取り敢えず 201 のコード返す</h2>
+<pre><code class="language-sh">$ curl -i -X POST http://localhost:3000/users
+HTTP/1.1 201 Created
+...
+</code></pre>
+
+</section>
+<section>
+
+<h2>パラメータ</h2>
+<ul>
+  <li>email, password</li>
+  <li>取り敢えず最小限で</li>
+  <li>Strong Parameters に追加</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Model は面倒なので puts するだけ</h2>
+<pre><code>$ curl -i -X POST -d "email=hoge@example.com&amp;password=123456&amp;invalid=hoge" http://localhost:3000/users 
+
+Started POST "/users" for 127.0.0.1 at 2017-03-21 20:15:28 +0900
+Processing by UsersController#create as */*
+  Parameters: {"email"=&gt;"hoge@example.com", "password"=&gt;"[FILTERED]", "invalid"=&gt;"hoge"}
+Unpermitted parameter: :invalid
+&lt;ActionController::Parameters {"email"=&gt;"hoge@example.com", "password"=&gt;"123456"} permitted: true&gt;
+Completed 201 Created in 1ms
+</code></pre>
+
+</section>
+<section>
+
+<h2>Rails なので JSON にも当然対応</h2>
+<pre><code>$ curl -i -X POST -H 'Content-type: application/json' -d '{"email": "hoge@example.com", "password": "123456"}' http://localhost:3000/users
+
+Started POST "/users" for 127.0.0.1 at 2017-03-21 20:22:46 +0900
+Processing by UsersController#create as */*
+  Parameters: {"email"=&gt;"hoge@example.com", "password"=&gt;"[FILTERED]", "user"=&gt;{"email"=&gt;"hoge@example.com", "password"=&gt;"[FILTERED]"}}
+Unpermitted parameter: :user
+&lt;ActionController::Parameters {"email"=&gt;"hoge@example.com", "password"=&gt;"123456"} permitted: true&gt;
+Completed 201 Created in 1ms
+</code></pre>
+
+</section>
+<section>
+
+<h2>と言いたかったけどアレ？w</h2>
+<pre><code>  Parameters: {"email"=&gt;"hoge@example.com", "password"=&gt;"[FILTERED]", "user"=&gt;{"email"=&gt;"hoge@example.com", "password"=&gt;"[FILTERED]"}}
+</code></pre>
+
+</section>
+<section>
+
+<h2>確か wrap_parameters とかなはず</h2>
+<p>が、時間が <img class="emoji" alt=":scream:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f631.png"></p>
+
+</section>
+</section>
+<section>
+
+<h2>今後やりたい事</h2>
+<ul>
+  <li><a href="https://developer.github.com/v3/">https://developer.github.com/v3/</a></li>
+  <li>バージョニング</li>
+  <li>複数の認証方式</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Thanks <img class="emoji" alt=":clap:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44f.png">
+</h2>
+
+</section>
