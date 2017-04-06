@@ -12,7 +12,7 @@ task :generate, :dir do |t, args|
   }
   RevealCK::Commands::Generate.new(generate_args).run
 end
-task g: :generate
+task(:g, :dir) { |t, arg| Rake::Task[:generate].invoke(arg.dir) }
 
 desc "Start webserver so slides are available via http"
 task :server, :dir do |t, args|
@@ -28,4 +28,4 @@ task :server, :dir do |t, args|
   }
   RevealCK::Commands::Serve.new(serve_args).run
 end
-task s: :server
+task(:s, :dir) { |t, arg| Rake::Task[:server].invoke(arg.dir) }
