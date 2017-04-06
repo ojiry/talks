@@ -2,8 +2,8 @@ require "pathname"
 require "reveal-ck"
 
 desc "Generate reveal.js slides"
-task :generate do |t|
-  dir = ENV["DIR"] || "example"
+task :generate, :dir do |t, args|
+  dir = args.dir || ENV["DIR"] || "example"
   generate_args = {
     user_dir: Pathname.new("source").join(dir).to_path,
     gem_dir: RevealCK.path,
@@ -15,8 +15,8 @@ end
 task g: :generate
 
 desc "Start webserver so slides are available via http"
-task :server do |t|
-  dir = ENV["DIR"] || "example"
+task :server, :dir do |t, args|
+  dir = args.dir || ENV["DIR"] || "example"
   serve_args = {
     doc_root: Pathname.new("docs").join(dir, "slides").to_path,
     gem_dir: RevealCK.path,
