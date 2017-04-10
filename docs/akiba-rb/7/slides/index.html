@@ -76,6 +76,229 @@
 </section>
 <section>
 
+<h2>腐らない Gemfile の作り方</h2>
+
+<pre><code class="language-ruby">source "https://rubygems.org"
+
+gem "fresh_gem"
+
+group :development do
+  gem "clean_gemfile"
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2>あなたの Gemfile 新鮮ですか？</h2>
+<p><img class="emoji" alt=":spaghetti:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f35d.png"> <img class="emoji" alt=":yum:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60b.png"> <img class="emoji" alt=":sushi:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f363.png"></p>
+
+</section>
+<section>
+
+<h2>Gemfile が腐ると…</h2>
+<ul>
+  <li>バージョンをあげれない</li>
+  <li>新しい機能が使えない</li>
+  <li>バグが直らない</li>
+  <li>モンキーパッチ地獄</li>
+</ul>
+
+</section>
+<section>
+
+<h2>問題だらけ <img class="emoji" alt=":cold_sweat:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f630.png">
+</h2>
+
+</section>
+<section>
+
+<h2>なぜ腐るのか？</h2>
+
+</section>
+<section>
+
+<h2>腐る原因その1</h2>
+<h3>大量の Gem を登録</h3>
+
+</section>
+<section>
+
+<h2>何個あった？</h2>
+<pre><code class="language-sh">$ cat gemfile | grep gem | wc -l
+</code></pre>
+
+</section>
+<section>
+
+<h2>その数がプロジェクトで管理する必要がある Gem の数だ</h2>
+
+</section>
+<section>
+
+<h2>Gem はメンテナがいる？</h2>
+
+</section>
+<section>
+
+<h2>そのふざけた幻想をぶち殺す</h2>
+
+</section>
+<section>
+
+<h2>有名な Gem も開発は止まります</h2>
+<ul>
+  <li><a href="https://github.com/ryanb/cancan">https://github.com/ryanb/cancan</a></li>
+  <li><a href="https://github.com/pluginaweek/state_machine">https://github.com/pluginaweek/state_machine</a></li>
+</ul>
+
+</section>
+<section>
+
+<h2>有名じゃない Gem はもっと止まります</h2>
+<ul>
+  <li><a href="https://github.com/ojiry/skmz">https://github.com/ojiry/skmz</a></li>
+</ul>
+
+</section>
+<section>
+
+<h2>そして止まる Gem の更新</h2>
+<h3>別の Gem に切りかえようにも依存範囲が…</h3>
+
+</section>
+<section>
+
+<h2>Forked repository <img class="emoji" alt=":scream:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f631.png">
+</h2>
+
+</section>
+<section>
+
+<h2>なんでも Gem で解決するのはよくない</h2>
+<ul>
+  <li>Gem を追加する前に胸に手を当てて考えよう</li>
+  <li>その機能は自分でも実装出来るんじゃないか</li>
+  <li>開発が活発で利用者も多いか</li>
+</ul>
+
+</section>
+<section>
+
+<h2>腐る原因その2</h2>
+<h3>Gemfile の断捨離</h3>
+
+</section>
+<section>
+
+<h2>使ってないコードがあったら？</h2>
+
+</section>
+<section>
+
+<h2>当然削除しますよね</h2>
+
+</section>
+<section>
+
+<h2>使ってない Gem があったら？</h2>
+
+</section>
+<section>
+
+<h2>削除…してます？</h2>
+
+</section>
+<section>
+
+<h2>息の長いプロジェクトだと不要な Gem が多い</h2>
+<ul>
+  <li>特に development, test グループ</li>
+  <li>追加はしても削除はしない</li>
+  <li>本当のゴミは Gemfile にある</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Gemfile にかかれている Gem = 管理する必要のある Gem</h2>
+
+</section>
+<section>
+
+<h2>不必要な Gem は削除しましょう <img class="emoji" alt=":put_litter_in_its_place:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f6ae.png">
+</h2>
+
+</section>
+<section>
+
+<h2>腐る原因その3</h2>
+<h3>モンキーパッチ <img class="emoji" alt=":monkey:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f412.png">
+</h3>
+
+</section>
+<section>
+
+<h2>きみはモンキーパッチが得意なフレンズなんだね</h2>
+
+</section>
+<section>
+
+<h2>君とは友達になれそうにない <img class="emoji" alt=":no_good:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f645.png">
+</h2>
+
+</section>
+<section>
+
+<h2>それが有効な場合もある</h2>
+<h3>が、そうじゃない事が多い</h3>
+
+</section>
+<section>
+
+<h2>よくあったパターン</h2>
+<ul>
+  <li>モンキーパッチがある</li>
+  <li>元の Gem の処理を変えている</li>
+  <li>モンキーパッチのせいで Gem を更新できない</li>
+  <li>Gem が腐る</li>
+  <li>心も腐る</li>
+</ul>
+
+</section>
+<section>
+
+<h2>まとめ</h2>
+
+</section>
+<section>
+
+<h2>Gemfile は生き物</h2>
+
+</section>
+<section>
+
+<h2>なるべく最新の状態に保つ</h2>
+
+</section>
+<section>
+
+<h2>追加・更新・削除に注意を払う</h2>
+
+</section>
+<section>
+
+<h2>使ってる Gem の管理は自分達の責任</h2>
+
+</section>
+<section>
+
+<h2>新鮮な Gemfile で楽しい開発ライフを <img class="emoji" alt=":smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png">
+</h2>
+
+</section>
+<section>
+
 <h2>Thanks <img class="emoji" alt=":clap:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44f.png">
 </h2>
 
